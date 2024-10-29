@@ -1,22 +1,34 @@
 :root {
     --color-primary: #123456;
     --color-secondary: #FFF;
-    --azul-royal: #144480;
-    --fundo-card-timer: rgba(20, 68, 128, 0.30);
-    --lils: #B872FF;
-    --linear-botes: linear-gradient(180deg, #B872FF 0%, #144480 100%);
+    --menu-border: #FF4C4C;
+    --card-timer-bg: rgba(110, 110, 110, 0.3);
+    --switch-color: #FF4C4C;
+    --startstop-button: linear-gradient(180deg, #FF4C4C 0%, #A80000 100%);
 }
 
-[data-contexto="enfoque"] {
-    --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+[data-context="focus"] {
+    --main-bg-color: linear-gradient(180deg, #FF4C4C 0%, #A80000 50%, #010B15 100%);
+    --menu-border: #FF4C4C;
+    --switch-color: #FF4C4C;
+    --startstop-button: linear-gradient(180deg, #FF4C4C 0%, #A80000 100%);
+
 }
 
-[data-contexto="descanso-corto"] {
-    --main-bg-color: linear-gradient(180deg, #0F725C 0%, #041832 48.44%, #01080E 100%);
+[data-context="short-break"] {
+    --main-bg-color: linear-gradient(180deg, #00A67D 0%, #044131 50%, #010B15 100%);
+    --menu-border: #00A67D;
+    --switch-color: #00A67D;
+    --startstop-button: linear-gradient(180deg, #00A67D 0%, #044131 100%);
+
 }
 
-[data-contexto="descanso-largo"] {
-    --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
+[data-context="long-break"] {
+    --main-bg-color: linear-gradient(180deg, #339CFF 0%, #00305e 50%, #010B15 100%);
+    --menu-border: #339CFF;
+    --switch-color: #339CFF;
+    --startstop-button: linear-gradient(180deg, #339CFF 0%, #00305e 100%);
+
 }
 
 * {
@@ -32,12 +44,17 @@ html {
 
 body {
     min-height: 100vh;
-    background: url("/imagenes/pattern.png");
+    background: url("/images/pattern.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Unbounded', cursive;
 }
 
@@ -77,8 +94,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .app__card {
     border-radius: 3.2rem;
-    border: 0.2rem solid var(--azul-royal);
-    background: var(--fundo-card-timer);
+    border: 0.2rem solid var(--menu-border);
+    background: var(--card-timer-bg);
     padding: 2.4rem;
     margin: 8rem 0;
     width: 59rem;
@@ -149,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     outline: inherit;
     border-radius: 3.2rem;
-    background: var(--linear-botes);
+    background: var(--startstop-button);
     margin-top: 3.2rem;
     font-size: 1.8rem;
     display: flex;
@@ -164,8 +181,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2.8rem 6rem;
     justify-content: center;
     align-items: center;
-    background: #010B15;
+    background: transparent;
 }
+
 
 .app__footer-text {
     color: rgba(182, 182, 182, 0.8);
@@ -194,7 +212,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: background 0.25s;
 }
 
-.toggle-switch:before, .toggle-switch:after {
+.toggle-switch:before,
+.toggle-switch:after {
     content: "";
 }
 
@@ -214,11 +233,11 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(to bottom, #fff 0%, #fff 100%);
 }
 
-.toggle-checkbox:checked + .toggle-switch {
-    background: var(--lils);
+.toggle-checkbox:checked+.toggle-switch {
+    background: var(--switch-color);
 }
 
-.toggle-checkbox:checked + .toggle-switch:before {
+.toggle-checkbox:checked+.toggle-switch:before {
     left: 3rem;
 }
 
